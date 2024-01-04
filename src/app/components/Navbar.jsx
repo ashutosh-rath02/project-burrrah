@@ -1,19 +1,25 @@
 import { signOut } from 'firebase/auth'
 import React, { useContext } from 'react'
+import '../styles/globals.css'
 import styled from 'styled-components'
+import { GlobalButton } from './shared/GlobalButton'
 
 import { auth } from '../../firebase/firebase'
 import { AuthContext } from '../context/AuthContext'
 
 const StyledNavbar = styled.nav`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1vw 5vw;
   background-color: #333;
   overflow: hidden;
   font-family: Arial, sans-serif;
 `
 
 const NavItem = styled.li`
-  float: left;
-  display: block;
+  list-style: none;
   color: white;
   text-align: center;
   padding: 14px 16px;
@@ -27,17 +33,6 @@ const NavItem = styled.li`
   a {
     color: inherit;
     text-decoration: none;
-  }
-`
-
-const SignOutButton = styled.button`
-  background: none;
-  border: none;
-  color: white;
-  cursor: pointer;
-
-  &:hover {
-    text-decoration: underline;
   }
 `
 
@@ -64,7 +59,7 @@ export const Navbar = () => {
             <a href="/myticket">My Ticket</a>
           </NavItem>
           <NavItem>
-            <SignOutButton onClick={handleSignOut}>Sign Out</SignOutButton>
+            <GlobalButton onClick={handleSignOut}>Sign Out</GlobalButton>
           </NavItem>
         </>
       )}

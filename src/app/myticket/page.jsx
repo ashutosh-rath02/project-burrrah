@@ -1,64 +1,19 @@
 /* eslint-disable max-len */
 'use client'
-// import React, { useState } from 'react'
-
-// import { createThis } from '../../firebase/createTicket.js'
-// import { Navbar } from '../components/Navbar'
-
-// const CreateTicket = () => {
-//   const [name, setName] = useState('')
-//   const [teamName, setTeamName] = useState('')
-//   const [email, setEmail] = useState('')
-
-//   const handleSubmit = (e) => {
-//     e.preventDefault()
-//     createThis(name, teamName, email)
-//     // console.log('Ticket Created:', { name, teamName, email })
-//     setName('')
-//     setTeamName('')
-//     setEmail('')
-//   }
-
-//   return (
-//     <>
-//       <Navbar />
-
-//       <div className="form-cont">
-//         <form onSubmit={handleSubmit}>
-//           <label>
-//             Name:
-//             <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
-//           </label>
-//           <br />
-//           <label>
-//             Team Name:
-//             <input type="text" value={teamName} onChange={(e) => setTeamName(e.target.value)} />
-//           </label>
-//           <br />
-//           <label>
-//             Email ID:
-//             <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-//           </label>
-//           <br />
-//           <button type="submit">Create Ticket</button>
-//         </form>
-//       </div>
-//     </>
-//   )
-// }
-
-// export default CreateTicket
 import { get, push, ref, update } from 'firebase/database'
 import html2canvas from 'html2canvas'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import React, { useContext, useEffect, useState } from 'react'
 import styled from 'styled-components'
+import '../styles/globals.css'
+//import { TicketPage } from './ticket.styles.jsx'
 
 import { database } from '../../firebase/firebase'
 import Modal from '../components/modal'
 import { Navbar } from '../components/Navbar'
 import { AuthContext } from '../context/AuthContext'
+//import { color } from 'html2canvas/dist/types/css/types/color'
 
 const TicketContainer = styled.div`
   display: flex;
@@ -72,11 +27,17 @@ const FormSection = styled.div`
   flex-direction: column;
   flex: 1;
   margin-right: 20px;
+  padding: 2vw 4vw;
+  background: linear-gradient(0deg, #292929, #bd00ff),
+    linear-gradient(212.47deg, #bd00ff 0%, rgba(0, 0, 0, 0) 44.37%);
+  border-image-source: linear-gradient(212.47deg, #bd00ff 0%, rgba(0, 0, 0, 0) 44.37%),
+    linear-gradient(0deg, #292929, #292929);
+  border-radius: 10px;
 `
 
 const Input = styled.input`
   padding: 10px;
-  margin-bottom: 10px;
+  margin: 7px 0px;
   border-radius: 4px;
   border: 1px solid #ccc;
 `
@@ -86,13 +47,27 @@ const TicketPreview = styled.div`
   border: 1px solid black;
   padding: 20px;
   margin: 10px;
+  padding: 2vw 4vw;
+  border-radius: 20px;
   min-height: 200px;
+`
+const ColorArray = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+`
+const ClrButton = styled.span`
+  height: 20px;
+  width: 20px;
+  margin: 2vw 1vw;
+  cursor: pointer;
+  border-radius: 5px;
 `
 
 const GenerateButton = styled.button`
   height: 50px;
   width: 100%;
-  background-color: #4caf50;
+  background-color: #bc00fe;
   color: white;
   padding: 15px 32px;
   text-align: center;
@@ -105,11 +80,13 @@ const GenerateButton = styled.button`
 `
 
 const MyTicketPage = () => {
+  const colors = ['#206EA6', '#4C1077', '#BBD3D9', '#FECF29', '#14F195']
   const { currentUser } = useContext(AuthContext)
   const [ticketInfo, setTicketInfo] = useState({
     name: '',
     teamName: '',
     email: '',
+    bgcolor: '',
     ticketImage: ''
   })
   const [showModal, setShowModal] = useState(false)
@@ -133,6 +110,7 @@ const MyTicketPage = () => {
           name: tickets[lastTicketKey].name,
           teamName: tickets[lastTicketKey].teamName,
           email: tickets[lastTicketKey].email,
+          bgcolor: tickets[lastTicketKey].bgcolor,
           ticketImage: tickets[lastTicketKey].ticketImage
         })
         setExistingTicketKey(lastTicketKey)
@@ -194,11 +172,27 @@ const MyTicketPage = () => {
               value={ticketInfo.email}
               onChange={handleChange}
             />
+            <></>
+            choose Background:
+            <Input type="color" name="bgcolor" value={ticketInfo.bgcolor} onClick={handleChange} />
+            <ColorArray>
+              {colors.map((c) => (
+                <ClrButton
+                  key={c}
+                  style={{ backgroundColor: c }}
+                  onClick={() => setTicketInfo({ ...ticketInfo, bgcolor: c })}
+                />
+              ))}
+            </ColorArray>
             <GenerateButton onClick={generateTicket}>
               {existingTicketKey ? 'Update Ticket' : 'Generate Ticket'}
             </GenerateButton>
           </FormSection>
-          <TicketPreview id="ticketPreview">
+
+          <TicketPreview
+            id="ticketPreview"
+            style={{ background: ticketInfo.bgcolor ? ticketInfo.bgcolor : '#ffffff' }}
+          >
             <h2>{ticketInfo.name || 'Your Name'}</h2>
             <p>{ticketInfo.teamName || 'Your Team Name'}</p>
             <p>{ticketInfo.email || 'Your Email'}</p>
