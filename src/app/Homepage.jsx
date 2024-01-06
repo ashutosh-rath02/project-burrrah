@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Navbar } from './components/Navbar'
+//import { Navbar } from './components/Navbar'
 //import CreateTicket from './components/CreateTicket'
 import SignUp from './components/SignUp'
 
@@ -9,7 +9,7 @@ import SignUp from './components/SignUp'
 function Homepage() {
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <SignUp />
     </>
   )

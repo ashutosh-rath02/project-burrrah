@@ -1,25 +1,79 @@
 .signContainer {
-  background-color: #f5c6c6;
-  border: 1px solid aqua;
-  margin: 0px;
+  padding: 5px;
+  width: 784.65px;
+  height: 1010px;
+  border-radius: 20px;
+  border: 2.5px solid;
+  border-radius: 20px;
+  border: 2.5px solid #393939;
+  background: linear-gradient(
+    180deg,
+    rgba(156, 154, 255, 0.1) 0%,
+    rgba(234, 173, 255, 0.08) 123.17%
+  );
+  border: 2.5px solid;
+  border-image-source: linear-gradient(212.47deg, #b46acf 0%, rgba(0, 0, 0, 0) 44.37%),
+    linear-gradient(0deg, #393939, #393939);
+  box-shadow: -1px 2px 9.800000190734863px 0px #ffffff40 inset;
+
+  box-shadow: 0px 18px 59.599998474121094px 0px #cc3cff1a inset;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 100px;
+  position: relative;
+}
+.dot {
+  fill: #cd4ff9;
+  filter: drop-shadow(0px 0px 2.467px #e18cff);
+  position: absolute;
+  width: 14px;
+  height: 13px;
 }
 
+.top-left-dot {
+  top: 0;
+  left: 0;
+}
+
+.top-right-dot {
+  top: 0;
+  right: 0;
+}
+
+.bottom-left-dot {
+  bottom: 0;
+  left: 0;
+}
+
+.bottom-right-dot {
+  bottom: 0;
+  right: 0;
+}
 .sign-form {
-  border: 1px solid aqua;
   display: flex;
   flex-direction: column;
   width: 30vw;
   margin: 3vw auto;
   padding: 2vw 4vw;
+  display: inline-flex;
+  height: 943px;
+  width: Hug (674px);
+  height: Fixed (943px);
+  gap: 35px;
 }
 
 .sign-form input {
-  width: 100%;
-  margin: 15px 5px;
-  padding: 10px;
-  border-radius: 5px;
-  outline: none;
-  border: 1px solid aqua;
+  display: flex;
+  width: 674px;
+  padding: 12px;
+  align-items: center;
+  gap: 10px;
+  border-radius: 11px;
+  border: 1.8px solid rgba(232, 142, 255, 0.2);
+  background: rgba(225, 225, 225, 0.06);
+  backdrop-filter: blur(25px);
 }
 
 .sign-form button {
@@ -29,13 +83,102 @@
   background-color: #baeeee;
 }
 .signupbutton {
-  width: 30%;
+  border-radius: 36px;
+  background: linear-gradient(0deg, #bc00fe, #bc00fe),
+    linear-gradient(0deg, rgba(232, 142, 255, 0.2), rgba(232, 142, 255, 0.2));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  width: 229px;
+  padding: 12px;
+  gap: 50px;
 }
 .extsign {
-  width: 60%;
+  display: flex;
+  width: 607px;
+  padding: 12px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 11px;
+  border: 1.8px solid rgba(232, 142, 255, 0.2);
+  background: rgba(225, 225, 225, 0.06);
+  backdrop-filter: blur(25px);
 }
-
+.GText {
+  color: #c0c0c1;
+  font-family: Montserrat;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.NText {
+  color: #e8e8e8;
+  font-family: Montserrat;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
 .sign-form h1 {
   text-align: center;
   margin: 10px;
+}
+
+.SText {
+  color: #e8e8e8;
+  font-family: Montserrat;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.switch-btn {
+  margin: 15px auto;
+  width: 273.6px;
+  height: 45.617px;
+  border-radius: 40px;
+  border: 1px solid rgba(232, 142, 255, 0.2);
+  background: rgba(225, 225, 225, 0.06);
+  backdrop-filter: blur(25px);
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  margin-left: 20px;
+  align-items: center;
+}
+
+.signup {
+  display: flex;
+  padding: 8px 36px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 33.523px;
+  border: 0.838px solid rgba(232, 142, 255, 0.55);
+  background: rgba(225, 225, 225, 0.06);
+  backdrop-filter: blur(20.95178985595703px);
+}
+
+.signin {
+  display: flex;
+  padding-right: 50px;
+  align-items: center;
+}
+
+.form-header {
+  color: #e8e8e8;
+  font-family: Montserrat;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
 }
