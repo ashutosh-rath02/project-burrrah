@@ -1,41 +1,102 @@
 .signContainer {
-  background-color: #f5c6c6;
-  border: 1px solid aqua;
+  /* background-color: #f5c6c6; */
+  background-color: black;
+  border: 1px solid black;
+  /* border: 1px black; */
   margin: 0px;
 }
 
 .sign-form {
-  border: 1px solid aqua;
+  /* border: 1px solid aqua; */
   display: flex;
   flex-direction: column;
   width: 30vw;
   margin: 3vw auto;
   padding: 2vw 4vw;
+  color: white;
+  border-radius: 1.25rem;
+  border: 2.5px solid #393939;
+  /* filter: drop-shadow(0 0 0.01rem #BC00FE); */
+  background: linear-gradient(
+    180deg,
+    rgba(156, 154, 255, 0.1) 0%,
+    rgba(234, 173, 255, 0.08) 123.17%
+  );
+  box-shadow:
+    -1px 2px 9.8px 0px rgba(255, 255, 255, 0.25) inset,
+    0px 18px 59.6px 0px rgba(204, 60, 255, 0.1) inset;
+  backdrop-filter: blur(40px);
 }
 
 .sign-form input {
-  width: 100%;
-  margin: 15px 5px;
-  padding: 10px;
+  /* width: 100%; */
+  margin: 10px 0px;
+  padding: 8px;
   border-radius: 5px;
   outline: none;
-  border: 1px solid aqua;
+  /* border: 1px solid aqua; */
 }
 
 .sign-form button {
   cursor: pointer;
   padding: 0.5vw 2vw;
   margin: 10px auto;
-  background-color: #baeeee;
+  /* background-color: #baeeee; */
 }
 .signupbutton {
   width: 30%;
+  border-radius: 2.25rem;
+  border: 1.8px solid rgba(232, 142, 255, 0.2);
+  background: #bc00fe;
+  backdrop-filter: blur(25px);
+  color: white;
 }
 .extsign {
-  width: 60%;
+  width: 90%;
+  border-radius: 0.2rem;
+  border: 1.8px solid rgba(232, 142, 255, 0.2);
+  background: rgba(225, 225, 225, 0.06);
+  backdrop-filter: blur(25px);
+  color: white;
 }
 
 .sign-form h1 {
   text-align: center;
   margin: 10px;
+}
+.holder {
+  border-radius: 0.6875rem;
+  border: 1.8px solid rgba(232, 142, 255, 0.2);
+  background: rgba(225, 225, 225, 0.06);
+  backdrop-filter: blur(25px);
+}
+.button-box {
+  width: 220px;
+  margin: 35px auto;
+  position: relative;
+  border:  solid rgba(232, 142, 255, 0.2);
+  /* box-shadow:0 0 20px 9px #ff61241f; */
+  border-radius: 30px;
+  color:white;
+}
+.toggle-btn {
+  padding: 10px 30px;
+  cursor: pointer;
+  color:white;
+  background:transparent;
+  border:0;
+  outline: none;
+  position: relative;
+}
+#btn {
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 110px;
+  height: 100%;
+  /* background: linear-gradient(to right, #ff105f, #ffad06); */
+  background: rgba(225, 225, 225, 0.06);
+  border:  solid rgba(232, 142, 255, 0.2);
+  border-radius: 30px;
+  transition: 0.5s;
 }

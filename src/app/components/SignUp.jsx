@@ -51,18 +51,35 @@ const SignUp = () => {
   return (
     <div className="signContainer">
       <div className="sign-form">
-        <h1>User signup</h1>
-        name:
-        <input type="text" placeholder="Enter your name" value={name} onChange={handleNameChange} />
-        email:
+        <div className="button-box">
+          <div id="btn"></div>
+          <button type="button" className="toggle-btn">
+            Sign Up
+          </button>
+          <button type="button" className="toggle-btn">
+            Sign In
+          </button>
+        </div>
+        {/* <h1>User signup</h1> */}
+        Your Name:
         <input
+          className="holder"
+          type="text"
+          placeholder="Enter your name"
+          value={name}
+          onChange={handleNameChange}
+        />
+        Email:
+        <input
+          className="holder"
           type="email"
           placeholder="Enter your email"
           value={email}
           onChange={handleEmailChange}
         />
-        password:
+        Password:
         <input
+          className="holder"
           type="password"
           placeholder="Enter your password"
           value={password}
